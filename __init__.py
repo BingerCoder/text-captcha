@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-from condition import ConditionConnection, Condition
+from condition import ConditionConnection, Condition, CalcException
 
 
-def aa():
+def get_captcha():
     condition_connections = ConditionConnection.choice()
     if condition_connections[0] == ConditionConnection.Single:  # 单个条件
         cond = Condition(Condition.Any).generate_condition()
@@ -18,6 +18,11 @@ def aa():
 
 
 if __name__ == "__main__":
-    question, answer = aa()
-    print question.decode("utf-8")
-    print answer
+    while True:
+        try:
+            question, answer = get_captcha()
+            print question.decode("utf-8")
+            print answer
+            break
+        except CalcException:
+            pass

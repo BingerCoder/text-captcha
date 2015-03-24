@@ -108,7 +108,9 @@ class Condition(object):
             ("今年年份", RandomData.current_year()),
             ("本月月份", RandomData.current_month()),
             ("今天几号", RandomData.current_day()),
+            ("今天周几[1-7]", RandomData.current_weekday()),
             ("北京奥运那年", "2008"),
+            Calc.index_value(None, *[RandomData.get_letter_digit() for i in range(4)]),
         ]
         self.UseData_Roles = [
             Calc.sum(*[RandomData.get_int() for i in range(4)]),
@@ -116,7 +118,6 @@ class Condition(object):
             Calc.get_odd(*[RandomData.get_int() for i in range(4)]),
             Calc.max(*[RandomData.get_int() for i in range(4)]),
             Calc.min(*[RandomData.get_int() for i in range(4)]),
-            Calc.index_value(None, *[RandomData.get_letter_digit() for i in range(4)]),
         ]
         if role == self.Any:
             role = RandomData.random_choice([self.UseData, self.UseNative])

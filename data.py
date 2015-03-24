@@ -50,3 +50,7 @@ class RandomData(object):
     @staticmethod
     def current_day():
         return datetime.now().strftime("%d")
+
+    @staticmethod
+    def current_weekday():
+        return datetime.now().weekday() + 1
