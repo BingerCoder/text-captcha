@@ -85,7 +85,6 @@ class ConditionConnection(object):
 
     @staticmethod
     def choice():
-        return ConditionConnection.Kinds[1]
         return RandomData.random_choice(ConditionConnection.Kinds)
 
 
